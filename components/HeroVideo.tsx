@@ -1,10 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function HeroVideo() {
   const [scrollY, setScrollY] = useState(0)
   const [viewportHeight, setViewportHeight] = useState(1)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY)
@@ -26,15 +27,22 @@ export default function HeroVideo() {
 
   return (
     <section className="relative h-screen min-h-[620px] overflow-hidden bg-black">
-      <div className="absolute inset-0 overflow-hidden">
-        <iframe
-          className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0 gpu-video"
-          src="https://www.youtube.com/embed/gdsUKphmB3Y?autoplay=1&mute=1&controls=0&loop=1&playlist=gdsUKphmB3Y&playsinline=1&modestbranding=1&rel=0&showinfo=0&enablejsapi=1"
-          title="Party with Snoop Dogg hero video"
-          allow="autoplay; fullscreen; picture-in-picture"
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
-      </div>
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full object-cover object-center gpu-video"
+        src="/video/NewHeroVideo.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onLoadedMetadata={() => {
+          if (videoRef.current) {
+            videoRef.current.currentTime = 22
+          }
+        }}
+        aria-label="Party with Snoop Dogg hero video"
+      />
       <div className="pointer-events-none absolute inset-0 bg-black/15" />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
         <div
