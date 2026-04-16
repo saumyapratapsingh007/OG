@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red: #f00f0f;
+  --blue: #0057ff;
+  --yellow: #ffe119;
+  --white: #fffdf2;
+  --black: #020202;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 22%, rgba(255, 15, 15, 0.08), transparent 24rem),
+    radial-gradient(circle at 86% 58%, rgba(0, 87, 255, 0.07), transparent 26rem),
+    #000;
+  color: var(--white);
+  font-family: var(--font-body), Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--yellow);
+  color: #000;
+}
+
+.retro-heading {
+  color: var(--white);
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(3.3rem, 9vw, 8.8rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.86;
+  text-transform: uppercase;
+  text-shadow:
+    6px 6px 0 var(--black),
+    -2px -2px 0 var(--red);
+}
+
+.retro-body {
+  color: var(--yellow);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: clamp(1.05rem, 2.1vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.42;
+  text-shadow:
+    3px 3px 0 var(--blue),
+    1px 1px 0 var(--black);
+}
+
+.retro-kicker {
+  color: var(--yellow);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: clamp(0.78rem, 1.2vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow:
+    2px 2px 0 var(--blue),
+    1px 1px 0 var(--black);
+}
+
+.copy-link {
+  display: block;
+  cursor: pointer;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+}
+
+.space-heading {
+  color: var(--white);
+  font-family: var(--font-space), Arial, sans-serif;
+  font-size: clamp(1.6rem, 4.4vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 18px rgba(255, 255, 255, 0.5),
+    0 0 34px rgba(133, 179, 255, 0.36),
+    4px 4px 0 rgba(0, 0, 0, 0.65);
+}
+
+.investor-card {
+  min-height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.14);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.gpu-video,
+.city-card,
+.investor-card {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.snoop-placeholder {
+  background:
+    radial-gradient(circle at 50% 12%, #101010 0 19%, transparent 20%),
+    linear-gradient(92deg, transparent 0 18%, #050505 19% 29%, transparent 30%),
+    radial-gradient(ellipse at 50% 78%, #050505 0 52%, transparent 53%);
+  filter: drop-shadow(-10px 10px 0 rgba(255, 15, 15, 0.78)) drop-shadow(10px 8px 0 rgba(0, 87, 255, 0.65));
+}
+
+.mystery-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle, #000, transparent 72%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
