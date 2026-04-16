@@ -1,11 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function HeroVideo() {
   const [scrollY, setScrollY] = useState(0)
   const [viewportHeight, setViewportHeight] = useState(1)
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY)
@@ -28,7 +27,6 @@ export default function HeroVideo() {
   return (
     <section className="relative h-screen min-h-[620px] overflow-hidden bg-black">
       <video
-        ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover object-center gpu-video"
         src="/video/NewHeroVideo.mp4"
         autoPlay
@@ -36,11 +34,6 @@ export default function HeroVideo() {
         loop
         playsInline
         preload="auto"
-        onLoadedMetadata={() => {
-          if (videoRef.current) {
-            videoRef.current.currentTime = 22
-          }
-        }}
         aria-label="Party with Snoop Dogg hero video"
       />
       <div className="pointer-events-none absolute inset-0 bg-black/15" />
