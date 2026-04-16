@@ -28,7 +28,7 @@ export default function HeroVideo() {
     <section className="relative h-screen min-h-[620px] overflow-hidden bg-black">
       <video
         className="absolute inset-0 h-full w-full object-cover object-center gpu-video"
-        src="/video/NewHeroVideo.mp4"
+        src="/video/HeroVideo.web.mp4"
         autoPlay
         muted
         loop
